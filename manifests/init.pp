@@ -20,18 +20,8 @@ class odoo (
 
    include odoo::install
 
-   if $admin_passwd =~ /^ENC\[/ {
-      $admin_passwd_final = decrypt ($admin_passwd)
-   }
-   else {
-      $admin_passwd_final = $admin_passwd
-   }
-   if $db_password =~ /^ENC\[/ {
-      $db_password_final = decrypt ($db_password)
-   }
-   else {
-      $db_password_final = $db_password
-   }
+   $admin_passwd_final = decrypt ($admin_passwd)
+   $db_password_final = decrypt ($db_password)
 
    file { 'openerp-server.conf':
       path    => '/etc/odoo/openerp-server.conf',
