@@ -117,7 +117,8 @@ class odoo::install {
 
    ## Odoo itself
    package {'odoo':
-      ensure   => '8.0.0',
+      ensure          => '8.0.0',
+      install_options => '--no-install-recommends',
    }
 
 }
