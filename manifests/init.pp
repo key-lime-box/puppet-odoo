@@ -1,5 +1,9 @@
 # Class: odoo
-
+#
+# Installs Odoo web server and dependencies but does not install
+# a database server, assuming that this server will run on its own
+# machine.
+#
 class odoo (
              $admin_passwd = '',
              $db_host      = 'localhost',
@@ -19,9 +23,6 @@ class odoo (
    }
 
    include odoo::install
-
-   $admin_passwd_final = decrypt ($admin_passwd)
-   $db_password_final = decrypt ($db_password)
 
    file { 'openerp-server.conf':
       path    => '/etc/odoo/openerp-server.conf',
