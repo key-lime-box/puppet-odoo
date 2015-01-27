@@ -32,7 +32,7 @@ class odoo (
       content => template("${module_name}/openerp-server.conf.erb"),
       owner   => 'odoo',
       group   => 'odoo',
-      mode    => '0640',
+      mode    => '0600',
    }
 
 }
