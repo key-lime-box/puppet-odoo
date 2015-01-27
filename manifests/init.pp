@@ -39,14 +39,21 @@ class odoo (
       owner   => 'odoo',
       group   => 'odoo',
       mode    => '0600',
-      require => Class['::odoo::install']
+      require => Class['::odoo::install'],
+      notify  => Service['odoo-server'],
    }
 
    file {['/opt/odoo', '/opt/odoo/addons']:
       ensure  => directory,
       owner   => 'odoo',
       group   => 'odoo',
-      mode    => '06400'
+      mode    => '0640',
+      notify  => Service['odoo-server'],
+   }
+
+   service {'odoo-server' :
+      name    => 'odoo',
+      ensure  => running,
    }
 
 }
