@@ -29,6 +29,7 @@ class odoo (
       owner   => 'odoo',
       group   => 'odoo',
       mode    => '0600',
+      show_diff => false,
       require => Class['::odoo::install'],
       notify  => Service['odoo-server'],
    }
