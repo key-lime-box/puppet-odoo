@@ -48,12 +48,14 @@ class odoo (
       owner   => 'odoo',
       group   => 'odoo',
       mode    => '0640',
+      require => Class['::odoo::install'],
       notify  => Service['odoo-server'],
    }
 
    service {'odoo-server' :
       name    => 'odoo',
       ensure  => running,
+      require => Class['::odoo::install'],
    }
 
 }
