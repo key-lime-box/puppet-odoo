@@ -113,6 +113,7 @@ class odoo::install {
    file {'/usr/bin/wkhtmltopdf':
       ensure   => link,
       target   => '/usr/local/bin/wkhtmltopdf'
+      require  => Package['wkhtmltox']
    }
 
    ## Odoo itself
